@@ -1414,6 +1414,11 @@ let lastEnteredSum = null;
 let justEnteredBtn = null;
 
 function addSum(n){
+  // Auto-close any open signal popup first
+  const overlay = document.getElementById('sig-overlay');
+  if(overlay && overlay.classList.contains('show')){
+    overlay.classList.remove('show');
+  }
   // Flash the button
   if(justEnteredBtn){
     document.querySelectorAll('.sum-btn').forEach(b=>b.classList.remove('just-entered'));
